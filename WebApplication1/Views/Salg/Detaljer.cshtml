@@ -1,0 +1,25 @@
+﻿@model WebApplication1.Model.Vare
+
+@{
+    ViewBag.Title = "Vare - " + Model.Navn;
+}
+
+<h4>Vare: @Model.Navn</h4>
+
+<p> <img alt="@Model.Navn" src="@Model.VareArtUrl" /></p>
+<div>
+  @* 
+  <p><em>Kategori:</em> @Model.Kategori.KatNavn</p>
+  *@
+    <p>Navn: @Model.Navn</p>
+    <p>Land: @Model.Land.Navn</p>
+    <p>Pris: @String.Format("{0:F}", Model.Pris)</p>
+    <p class="button">
+    
+      @Html.ActionLink("Kjøp", "LeggTilHandlekurv", "Salg", new { id = Model.VareId }, new { @class = "btn btn-success btn-sm" })
+      @Html.ActionLink("Handle mer", "Index", new { tom = "" }, new { @class = "btn btn-primary btn-sm"})
+      @Html.ActionLink("Handlekurv", "VisHandlekurv", "Salg", new { id = Model.VareId }, new { @class = "btn btn-primary btn-sm " })
+      
+  </p>
+</div>
+

@@ -1,0 +1,64 @@
+﻿@model IEnumerable<WebApplication1.Model.Vare>
+
+@{
+    ViewBag.Title = "Betaling";
+}
+
+<h3>Betaling</h3>
+@*<h5>Du er logget inn som @Model.Fornavn @Model.Etternavn</h5> *@
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.LandId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Navn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pris)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Antall)
+        </th>
+        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.LandId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Navn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pris)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Antall)
+        </td>
+       
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.VareId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.VareId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.VareId })
+        </td>
+    </tr>
+}
+
+</table>
+<form role="form">
+    <div class="form-group">
+        <label for="KortHoldersNavn">Kortholderens navn:</label>
+        <input type="text" class="form-control" id="KortHoldersNavn" placeholder="Skriv ditt navn">
+    </div>
+    <div class="form-group">
+        <label for="KortNummer">Kortnummer:</label>
+        <input type="text" class="form-control" id="KortNummer" placeholder="Skriv Kortnr">
+    </div>
+    <!--<button type="submit" class="btn btn-primary">Betal</button> -->
+    <p class="button">
+        @Html.ActionLink("Betal", "Bestilling", "Salg", new { innVarer = Model }, new { @class = "btn btn-primary btn-sm" })
+    <p>
+</form>

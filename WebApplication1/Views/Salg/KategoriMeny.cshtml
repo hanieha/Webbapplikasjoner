@@ -1,0 +1,11 @@
+﻿@model IEnumerable<WebApplication1.Model.Kategori>
+
+<ul id="kategorier">
+    @foreach (var kategori in Model)
+    {
+        <li>@Html.ActionLink(kategori.KatNavn, "KategoriListe", "Salg", new { kategori = kategori.KatNavn }, null)</li>
+    }
+</ul>
+
+
+

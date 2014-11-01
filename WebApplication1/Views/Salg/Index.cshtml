@@ -1,0 +1,18 @@
+﻿@model  List<WebApplication1.Model.Vare>
+@{
+    ViewBag.Title = "Drikk";
+}
+
+<h4>Populære varer:</h4>
+    @foreach (var vare in Model)
+    {
+        <a href="@Url.Action("Detaljer", "Salg", new { id = vare.VareId}))"><img alt="@vare.Navn" src="@vare.VareArtUrl" /></a>
+    @Html.ActionLink(vare.Navn, "Detaljer", new { id = vare.VareId }, null)
+
+
+    }
+
+
+
+
+       

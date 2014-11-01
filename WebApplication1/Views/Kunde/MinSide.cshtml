@@ -1,0 +1,82 @@
+﻿@model WebApplication1.Model.Kunde
+
+@{
+    ViewBag.Title = "MinSide";
+}
+@if (!ViewBag.Innlogget)
+{
+    <h3>Du må logge deg inn !</h3>
+}
+@if (ViewBag.Innlogget)
+{
+    <h5>Hei <strong>@Model.Fornavn !</strong></h5>
+
+    <!--<h6>Din profile:</h6>-->
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Fornavn)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Fornavn)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Etternavn)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Etternavn)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Adresse)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Adresse)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Epost)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Epost)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Postnr)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Postnr)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Poststed)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Poststed)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Passord)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Passord)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Endre Profil info", "Endre", "Kunde", new { /* id = Model.PrimaryKey */ }) |
+        @Html.ActionLink("Lyst til å handle", "Index", "Salg") |
+        @Html.ActionLink("Logg ut", "LoggUt", "Kunde", new { @class = "right" })
+    </p>
+}

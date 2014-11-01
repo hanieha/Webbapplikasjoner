@@ -1,0 +1,62 @@
+﻿@model IEnumerable<WebApplication1.Model.Vare>
+
+@{
+    ViewBag.Title = "VisHandlekurv";
+}
+
+<h4>Din handlekurv</h4>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.LandId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Navn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pris)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Antall)
+        </th>
+            @*@Html.DisplayNameFor(model => model.VareArtUrl)  *@
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.LandId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Navn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pris)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Antall)
+        </td>
+        <td>
+           @* @Html.DisplayFor(modelItem => item.VareArtUrl) *@
+        </td> 
+        <td>
+            @*@@Html.ActionLink("Edit", "Edit", new { id=item.VareId }) |  *@
+            @Html.ActionLink("Detaljer", "Detaljer", "Salg", new { id = item.VareId }) |
+            @Html.ActionLink("Delete", "FjernFraHandlekurv", "Salg", new { id = item.VareId }) 
+        </td>
+    </tr>
+}
+
+</table>
+
+<div>
+    <p class="button" >
+        @Html.ActionLink("Fortsett å handle", "Index", "Salg", new { tom = "" }, new { @class = "btn btn-primary btn-sm" })
+        @Html.ActionLink("Til Kasse", "Betaling", "Salg", new { tom = "" }, new { @class = "btn btn-primary btn-sm " })
+    </p>
+</div>
+
+
